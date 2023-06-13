@@ -24,7 +24,7 @@ class Blogcontroller extends Controller
     public function index(Request $request)
     {
         $blogs=$this->blogService->indexService($request);
-        $counts=$this->blogService->index_count_comment_service($blogs);
+        $counts=$this->blogService->index_count_comment_service($blogs); 
         return view("blog.blogindex",["blogs"=>$blogs,"counts"=>$counts]); 
     }
 

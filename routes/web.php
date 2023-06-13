@@ -26,7 +26,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     //文章編輯頁面控制器
-    Route::get('/edit', \App\Http\Controllers\EditController::class)->name("edit"); 
+    Route::get('/edit', [\App\Http\Controllers\EditController::class,"edit"])->name("edit"); 
     //留言控制器
     Route::resource('comment',\App\Http\Controllers\CommentController::class);
     //子留言控制器
@@ -53,5 +53,5 @@ Route::get("newown/{id}/fromSonComment",[\App\Http\Controllers\NewOwnController:
 Route::get("newown/{id}/fromFollow",[\App\Http\Controllers\NewOwnController::class,"fromFollow"])->name("newown.fromFollow");
 
 //測試用路由
-Route::get("test",\App\Http\Controllers\TestController::class);
+Route::resource("test",\App\Http\Controllers\TestController::class);
 
