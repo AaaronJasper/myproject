@@ -7,10 +7,17 @@
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
+
+        {{-- Login with Google account --}}
+        <div class="flex items-center justify-end mt-4">
+            <a class="btn" href="{{ url('auth/google') }}" style="background: #FF3333; color: WHITE; padding: 5px; width: 100%; text-align: center; border-radius:5px;  display: block;">
+                Google 帳戶登入
+            </a>
+        </div>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -34,9 +41,9 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
                 @endif
 
                 <x-button class="ml-4">

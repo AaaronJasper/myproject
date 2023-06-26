@@ -9,7 +9,7 @@ class EditController extends Controller
 {
     public function edit(Request $request)
     {
-        $blogs=Blog::where('user_id',auth()->id())->get();
-        return view("blog.blogedit",["blogs"=>$blogs]);
+        $blogs = Blog::where('user_id', auth()->id())->get();
+        return view("blog.blogedit", ["blogs" => $blogs]);
     }
 }

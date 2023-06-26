@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'google_account',
     ];
 
     /**
@@ -60,15 +60,18 @@ class User extends Authenticatable
     ];
 
     //連接文章
-    public function blogs(){
+    public function blogs()
+    {
         return $this->hasMany('App\Models\Blog');
     }
     //連接主留言 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany('App\Models\Comment');
     }
     //連接子留言 
-    public function soncomments(){
+    public function soncomments()
+    {
         return $this->hasMany('App\Models\soncomment');
     }
 }

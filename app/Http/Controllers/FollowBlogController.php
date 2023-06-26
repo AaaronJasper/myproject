@@ -13,7 +13,7 @@ class FollowBlogController extends Controller
     private $blogService;
     public function __construct(BlogService $blogService)
     {
-        $this->blogService=$blogService;
+        $this->blogService = $blogService;
     }
     /**
      * 顯示追蹤中的文章
@@ -21,8 +21,8 @@ class FollowBlogController extends Controller
     public function __invoke()
     {
         $id = auth()->id();
-        $blogs=$this->blogService->followblogService($id);
-        $counts=$this->blogService->index_count_comment_service($blogs);
-        return view("blog.followblog",["blogs"=>$blogs,"counts"=>$counts]);
+        $blogs = $this->blogService->followblogService($id);
+        $counts = $this->blogService->index_count_comment_service($blogs);
+        return view("blog.followblog", ["blogs" => $blogs, "counts" => $counts]);
     }
 }

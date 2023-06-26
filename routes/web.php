@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,4 +54,9 @@ Route::get("newown/{id}/fromFollow",[\App\Http\Controllers\NewOwnController::cla
 
 //測試用路由
 Route::resource("test",\App\Http\Controllers\TestController::class);
+
+//google登入
+Route::get('/auth/google', [\App\Http\Controllers\SocialiteController::class, 'googleLogin'])->name('/auth/google');
+Route::get('/auth/google/callback', [\App\Http\Controllers\SocialiteController::class, 'googleLoginCallback'])->name('/auth/google/callback');
+
 
