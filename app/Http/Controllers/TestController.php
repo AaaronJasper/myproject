@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class TestController extends Controller
 {
@@ -13,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        Auth::logout();
+        dd(Session::all());
     }
 
     /**

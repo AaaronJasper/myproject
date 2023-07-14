@@ -8,7 +8,7 @@ use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\SonComment;
 
-class BlogService
+class BlogService 
 {
     //首頁查詢功能
     public function indexService(Request $request)

@@ -15,7 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("welcome/");
 
 Route::middleware([
     'auth:sanctum',
@@ -37,6 +37,8 @@ Route::middleware([
     Route::resource('follow',\App\Http\Controllers\FollowController::class);
     //從追蹤中的文章的控制器
     Route::get("followblog",\App\Http\Controllers\FollowBlogController::class)->name("followblog");
+    //訂閱使用觀察者模式
+    Route::get("subscribe",[\App\Http\Controllers\SubscribedController::class,"subscribe"])->name("subscribe");
 });
 
 //文章資源控制器
@@ -58,5 +60,5 @@ Route::resource("test",\App\Http\Controllers\TestController::class);
 //google登入
 Route::get('/auth/google', [\App\Http\Controllers\SocialiteController::class, 'googleLogin'])->name('/auth/google');
 Route::get('/auth/google/callback', [\App\Http\Controllers\SocialiteController::class, 'googleLoginCallback'])->name('/auth/google/callback');
-
+Route::get('/auth/google/logout', [\App\Http\Controllers\SocialiteController::class, 'googleLogout'])->name('/auth/google/logout');
 

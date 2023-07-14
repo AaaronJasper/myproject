@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Comment;
 use App\Models\Soncomment;
 
-class OwnService
+class OwnService 
 {
     //更新頭像功能
     public function storeService(Request $request)

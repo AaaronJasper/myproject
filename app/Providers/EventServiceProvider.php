@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\UserSubscribed;
+use App\Listeners\EmailOwnerAboutSubscription;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +24,10 @@ class EventServiceProvider extends ServiceProvider
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // ... other providers
             \SocialiteProviders\Google\GoogleExtendSocialite::class . '@handle',
+        ],
+        UserSubscribed::class => [
+            EmailOwnerAboutSubscription::class,
+
         ],
     ];
 
