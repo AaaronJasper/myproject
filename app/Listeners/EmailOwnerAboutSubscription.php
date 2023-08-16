@@ -26,7 +26,7 @@ class EmailOwnerAboutSubscription
     public function handle(UserSubscribed $event): void
     {
         //使用job來將郵件存入queue 
-        dispatch(new CustomerJob($event->email));
-        //Mail::to($event->email)->send(new UserSubscribedMessage());
+        //dispatch(new CustomerJob($event->email));
+        Mail::to($event->email)->send(new UserSubscribedMessage());
     }
 }
